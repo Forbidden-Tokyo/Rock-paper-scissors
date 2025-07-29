@@ -1,0 +1,215 @@
+/* General body styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, #a8c0ff, #3f2b96); /* Gradient background */
+    color: #fff; /* Changed text color to white for contrast */
+    overflow: hidden; /* Prevent scrollbar from gradient stretch */
+}
+
+/* Game container styling */
+.game-container {
+    background-color: rgba(255, 255, 255, 0.95); /* Slightly transparent white background */
+    padding: 40px; /* Original padding */
+    border-radius: 15px; /* More rounded corners */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3); /* Stronger shadow */
+    text-align: center;
+    width: 90%;
+    max-width: 550px; /* Slightly wider */
+    animation: fadeIn 1s ease-out; /* Add a fade-in animation */
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+/* Fade-in animation for the container */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Heading styling */
+h1 {
+    color: #2c3e50; /* KEPT: Darker charcoal as you approved */
+    margin-bottom: 30px; /* REVERTED: Original margin */
+    font-size: 2.8em; /* Original font size */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Original text shadow */
+}
+
+/* Score display styling */
+.score-display {
+    display: flex; /* Use flexbox for horizontal layout */
+    justify-content: space-around; /* Distribute space evenly */
+    margin-bottom: 25px; /* KEPT: Current value (was added with scoring) */
+    font-size: 1.4em; /* KEPT: Current value (was added with scoring) */
+    font-weight: bold;
+    color: #3f2b96; /* KEPT: Current value (was added with scoring) */
+}
+
+.score-display p span {
+    color: #007bff; /* KEPT: Current value (was added with scoring) */
+    margin-left: 5px; /* KEPT: Current value (was added with scoring) */
+}
+
+
+/* Choices section styling */
+.choices {
+    margin-bottom: 20px; /* REVERTED: Original margin */
+}
+
+/* Choice button styling */
+.choice-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 15px 30px; /* Original padding */
+    margin: 0 10px; /* REVERTED: Original margin */
+    border-radius: 30px; /* Original border-radius */
+    font-size: 1.2em; /* Original font size */
+    cursor: pointer;
+    transition: all 0.3s ease; /* Original transition */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Original shadow */
+    outline: none; /* Original outline */
+}
+
+.choice-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.choice-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Result display styling */
+.result-display {
+    background-color: #e9ecef;
+    padding: 20px; /* Original padding */
+    border-radius: 10px;
+    margin-top: 25px; /* Original margin */
+    color: #333; /* Darker text for readability on light background */
+    /* REVERTED: Removed flexbox properties for desktop, so content flows naturally */
+    /* REVERTED: Removed min-height for desktop */
+}
+
+.result-display p {
+    font-size: 1.2em; /* REVERTED: Original font size */
+    margin: 10px 0; /* REVERTED: Original margin */
+    font-weight: 500;
+}
+
+#result-message {
+    font-size: 1.5em; /* REVERTED: Original font size */
+    font-weight: bold;
+    margin-top: 20px; /* REVERTED: Original margin */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #28a745;
+}
+
+/* Play again button styling */
+.play-again-button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 30px; /* KEPT: Current value (was added with scoring) */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: none;
+}
+
+.play-again-button:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+}
+
+.play-again-button:active {
+    transform: translateY(0);
+}
+
+/* --- Responsive Design (Media Queries) --- */
+
+/* Styles for screens smaller than 600px (typical phones) */
+@media (max-width: 600px) {
+    .game-container {
+        padding: 25px; /* Reduce padding for smaller screens */
+        border-radius: 10px; /* Slightly less rounded */
+    }
+
+    h1 {
+        font-size: 2em; /* Smaller heading font */
+        margin-bottom: 25px; /* Adjusted margin for mobile */
+    }
+
+    .score-display {
+        font-size: 1.2em; /* Smaller score font */
+        margin-bottom: 20px; /* Adjusted margin for mobile */
+    }
+
+    .choice-button {
+        padding: 10px 20px; /* Smaller button padding */
+        margin: 0 8px; /* Reduce margin between buttons */
+        font-size: 1em; /* Smaller button font */
+    }
+
+    /* If buttons wrap on very small screens, make them stack vertically */
+    .choices {
+        display: flex;
+        flex-direction: column; /* Stack buttons vertically */
+        gap: 15px; /* Space between stacked buttons */
+        align-items: center; /* Center buttons horizontally when stacked */
+    }
+
+    .result-display {
+        padding: 15px; /* Smaller result display padding */
+        min-height: 80px; /* Add min-height for mobile */
+        display: flex; /* Use flexbox for mobile result alignment */
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .result-display p {
+        font-size: 1.1em; /* Smaller result choice font */
+        margin: 8px 0; /* Adjusted margin for mobile */
+    }
+
+    #result-message {
+        font-size: 1.6em; /* Smaller result message font */
+        margin-top: 10px; /* Adjusted margin for mobile */
+    }
+
+    .play-again-button {
+        padding: 10px 20px;
+        font-size: 1em;
+        margin-top: 25px;
+    }
+}
+
+/* Styles for screens smaller than 400px (very small phones) */
+@media (max-width: 400px) {
+    .game-container {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    .choice-button {
+        padding: 8px 15px;
+        font-size: 0.9em;
+    }
+
+    #result-message {
+        font-size: 1.4em;
+    }
+}
